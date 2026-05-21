@@ -1,0 +1,8 @@
+#!/bin/bash
+# add_bash: bash의 편리한 산술연산(( ))을 사용하여 모든 인수의 합 계산
+
+sum=0
+for arg in "$@"; do
+    ((sum += arg))
+done
+echo $sum

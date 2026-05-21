@@ -1,0 +1,19 @@
+#!/bin/bash
+# longest-word: find longest string in a file
+while [ -n "$1" ]; do
+    if [ -r "$1" ]; then
+        max_word=
+        max_len=0
+        for word in $(cat "$1"); do
+            len=${#word}
+            if [ $len -gt $max_len ]; then
+                max_len=$len
+                max_word=$word
+            fi
+        done
+        echo "$1: 가장 긴 단어 = '$max_word' (길이: $max_len)"
+    else
+        echo "$1: 읽을 수 없는 파일입니다."
+    fi
+    shift
+done
